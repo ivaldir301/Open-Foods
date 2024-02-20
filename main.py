@@ -1,23 +1,11 @@
-from itertools import product
 from fastapi import FastAPI
 from routes import Products, ProductDetails
-from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
 
 app = FastAPI()
 
-origins = ["*"]
-
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=origins,
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
-
-app.include_router(Products)
-app.include_router(ProductDetails)
+app.include_router(Products.router)
+app.include_router(ProductDetails.router)
 
 # Simple endpoint to test if api is up and running 
 @app.get("/test")
