@@ -7,8 +7,9 @@ def formatProductNutriScore(productNutriScore: str) -> str:
 def setProductNutriScoreTitle(productNutriScore: str) -> str:
     if 'Qualidade nutricional muito boa' in productNutriScore:
         return 'Qualidade nutricional muito boa'
-    elif 'Nutri-Score desconhecido' in productNutriScore:
+    elif 'Nutri-Score desconhecido' in productNutriScore or productNutriScore is None:
         return 'Nutri-Score desconhecido'
+        
     
 def formatProductNovaScore(productNovaScore: str) -> str:
     if 'A' in productNovaScore:
@@ -18,6 +19,6 @@ def formatProductNovaScore(productNovaScore: str) -> str:
     
 def setProductNovaScoreTitle(productNovaScore: str) -> str:
     if 'Alimentos não processados' in productNovaScore:
-        return 'Alimentos não processados'
+        return 'Alimentos não processados ou minimamente processados'
     elif 'Nutri-Score desconhecido' in productNovaScore:
         return 'Nova não especificada'
