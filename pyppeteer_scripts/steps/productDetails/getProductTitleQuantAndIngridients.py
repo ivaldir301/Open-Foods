@@ -1,4 +1,15 @@
+import logging 
+
+logging.basicConfig(
+        filename="pyppeteer_scripts/logs/scrapping.log",
+        level=logging.INFO,
+        format="%(asctime)s %(levelname)s %(message)s",
+        datefmt="%Y-%m-%d %H:%M:%S"
+)
+
 async def getProductTitleQuantAndIngridients(pageReference: any, specificProductInfo):
+    logging.info("----------> Getting product quantitity and ingridients ...")
+    
     productTitle: str = (await pageReference.querySelectorEval(".title-1", "(element) => element.textContent"))   
     specificProductInfo['title'] = productTitle.replace("\xa0", "", 5).replace("\n", "", 5).strip("\t").strip()
     specificProductInfo['quantity']: str = await pageReference.querySelectorEval("#field_quantity_value", "(element) => element.textContent")
@@ -16,17 +27,17 @@ async def getProductTitleQuantAndIngridients(pageReference: any, specificProduct
             if "Pode conter óleo de palma" in hasPalmOilDomComponent:
                 specificProductInfo['ingridients']['hasPalmOil'] = True 
         except:
-            print("-----------> Component for palm oil presence in product not found")
+            logging.warning("-----------> Component for palm oil presence in product not found")
        
     try: 
         isVeganComponent = await pageReference.querySelectorAll("#panel_ingredients_analysis_en-vegan")
         if isVeganComponent == []:
             specificProductInfo['ingridients']['isVegan'] = False
         else:
-            print(isVeganComponent)
+            logging.info(isVeganComponent)
             specificProductInfo['ingridients']['isVegan'] = True
     except:
-        print("----------> Component with vegan presence in product value was not found in the page")
+        logging.warning("----------> Component with vegan presence in product value was not found in the page")
 
     try:
         isVegetarianComponent = await pageReference.querySelectorAll("#panel_ingredients_analysis_en-vegetarian")
@@ -35,7 +46,7 @@ async def getProductTitleQuantAndIngridients(pageReference: any, specificProduct
         else:
             specificProductInfo['ingridients']["isVegetarian"] = True 
     except:
-        print("----------> Component with vegeterian presence in product value was not found")
+        logging.warning("----------> Component with vegeterian presence in product value was not found")
         
     try:    
         panelIngridientDomContent: str = await pageReference.querySelectorEval("#panel_ingredients_content > div:nth-child(1) > div > div", "(element) => element.textContent")
@@ -44,5 +55,5 @@ async def getProductTitleQuantAndIngridients(pageReference: any, specificProduct
             ingridientContentList.append((panelIngridientDomContent.replace("\n", "", int(len(panelIngridientDomContent))).strip("\t")).replace(": ", "").strip())
             specificProductInfo["ingridients"]["list"] = ingridientContentList
     except:
-        print("----------> Component with product ingridients was not found in the page")
+        logging.warning("----------> Component with product ingridients was not found in the page")
     return specificProductInfo
