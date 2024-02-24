@@ -1,6 +1,4 @@
-import asyncio
-from fastapi import APIRouter, Body, FastAPI, HTTPException, status
-from pydantic import Json
+from fastapi import APIRouter, Body, FastAPI
 
 from pyppeteer_scripts.productDetailsScrapper import getProductWithId
 

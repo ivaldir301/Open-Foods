@@ -1,5 +1,5 @@
 import asyncio
-from fastapi import APIRouter, FastAPI, HTTPException, status
+from fastapi import APIRouter
 from pyppeteer_scripts.ProductsScrapper import getAllProductsFromWebsite
 
 router = APIRouter()
