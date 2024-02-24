@@ -174,7 +174,7 @@ Uma api capaz de buscar informações sobre diversos produtos alimentíçios no 
 
 ## Principais desafios durante o exame
 
-- Puppeteer/Pyppeteer, sendo a primeira vez utilizando o framework
+- Puppeteer/Pyppeteer, sendo a primeira vez utilizando a biblioteca.
 - Demorei um pouco para descobrir como aumentar o tempo de timeout do Pyppeteer, o que mais me frustrou mas consegui ultrapassar
 - Conseguir coletar dados de alguns elementos dentro do site, que se situavam dentro de vários outros componentes como div's, ul's, etc.
 - Conseguir organizar o projecto da forma mas modular e organizada, mantendo em mente boas práticas 
