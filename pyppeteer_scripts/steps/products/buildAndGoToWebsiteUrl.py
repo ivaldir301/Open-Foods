@@ -1,4 +1,3 @@
-from pyppeteer_scripts.utils.dateTimeFormatGenerator import generateDateTimeInFormat
 import logging
 
 options = {
