@@ -38,6 +38,8 @@ Uma api capaz de buscar informações sobre diversos produtos alimentíçios no 
   - Scrappers são os scripts Pyppeteer para percorrer o website e apanhar os dados necessários
   - Logs contem mensagens de diferentes estágios do scrapping de acordo com scrappings anteriores
   - Utilidades sendo um conjunto de funções com lógicas repitidas durante o projecto
+- Routes: Contem rotas do FastApi e lógica para retorno de cada uma
+- main.py: Ficheiro príncipal do FastApi contento referencias para as rotas e rota de teste da api.
 
 ## Rotas
 
