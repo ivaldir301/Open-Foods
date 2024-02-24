@@ -3,6 +3,20 @@
 
 Uma api capaz de buscar informações sobre diversos produtos alimentíçios no site br.open-foods.org!
 
+## O que foi utilizado?
+
+- Pyppeteer
+- Python 3
+- FastApi
+- Asyncio
+
+## Regras seguidas:
+
+- Sem usar persistencia de dados
+- Usar Puppeteer (Pyppeteer no caso, mas é uma implementação do Puppeteer para poder ser usado com python)
+- Usar Swagger 
+- Respostas das requisições da api seguem o modelo passado no enunciado
+
 ## Como instalar?
 
 - Baixar e instalar o python: https://www.python.org/downloads/
