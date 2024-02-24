@@ -19,7 +19,7 @@ async def getListOfProductsAndTheirDetails(pageReference: any):
         
     # going throught all the li elements that contains each product and picking the needed information
     listOfAllProducts = []
-    for productElements in product_elements:
+    for productElements in productElements:
         logging.info("----------> Parsing all products before returning ...")
         productInfo = {}
         
