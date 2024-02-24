@@ -29,6 +29,16 @@ Uma api capaz de buscar informações sobre diversos produtos alimentíçios no 
 - python3 install -r requirements.txt || pip install -r requirements.txt
 - uvicorn main:app --reload
 
+## Organização do projecto
+
+![alt text](media/folderStructure.png?raw=true)
+
+- media: Contem fotos utilizadas no ficheiro readme
+- pyppeteer_scripts: Local onde estão armazenados os scrappers, logs de scrapping e pasta com utilidades
+  - Scrappers são os scripts Pyppeteer para percorrer o website e apanhar os dados necessários
+  - Logs contem mensagens de diferentes estágios do scrapping de acordo com scrappings anteriores
+  - Utilidades sendo um conjunto de funções com lógicas repitidas durante o projecto
+
 ## Rotas
 
 - Para retornar produtos baseado em nutriscore e em nova score: http://127.0.0.1:8000/produtos?nutriscore={nutriscore}&nova={nova}
